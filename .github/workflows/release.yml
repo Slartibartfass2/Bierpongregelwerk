@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    # tags:
-    #   - "v*.*.*"
+    tags:
+      - "v*.*.*"
   workflow_dispatch:
 
 jobs:
@@ -16,9 +16,6 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: "Bierpongregelwerk.tex"
-          glob_root_file: true
-
-      - run: ls -l
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
@@ -41,8 +38,6 @@ jobs:
         with:
           name: release
 
-      - run: ls -l
-      
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
